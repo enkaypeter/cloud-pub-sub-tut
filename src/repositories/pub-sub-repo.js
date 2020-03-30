@@ -26,6 +26,15 @@ module.exports = {
             subscription.removeListener('message', messageHandler);
             console.log(`${messageCount} message(s) received.`);
         }, timeout * 1000);
+    },
+
+    listenForPushMessages: (payload) => {
+        const message = Buffer.from(payload, 'base64').toString(
+            'utf-8'
+        );
+        let parsedMessage = JSON.parse(message);
+        console.log(parsedMessage);
+        return parsedMessage;
     }
 
 };

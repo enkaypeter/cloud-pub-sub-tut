@@ -3,7 +3,7 @@ const pubSubClient = new PubSub();
 const subscriptionName = "delivery_sub";
 const timeout = 60;
 const pubsubRepository = require("../repositories/pub-sub-repo");
-const { listenForMessages } = pubsubRepository;
+const { listenForMessages, listenForPushMessages } = pubsubRepository;
 
 module.exports = {
     deliveryHome: (req, res) => {
@@ -19,10 +19,28 @@ module.exports = {
         } catch (error) {
             return res.status(500).json({
                 success: false,
-                message: "Couldn't recieve orders object :)",
+                message: "Couldn't recieve orders object :(",
                 data: error
             })                        
         }
         
+    },
+
+    pushDelivery: async (req, res) => {
+        try {
+            let messageResponse = await listenForPushMessages(req.body.message.data);
+            return res.status(200).json({
+                success: true,
+                message: "Message recieved successfully",
+                data: messageResponse
+            })
+    
+        } catch (error) {
+            return res.status(500).json({
+                success: false,
+                message: "Couldn't recieve orders object :(",
+                data: error
+            })                        
+        }
     }
 };
