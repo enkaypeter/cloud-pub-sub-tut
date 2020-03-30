@@ -2,10 +2,12 @@
   "name": "cloud-pub-sub-tut",
   "version": "1.0.0",
   "description": "source code for cloud pub/sub tutorial",
-  "main": "src/app.js",
+  "main": "src/orders.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/app.js",
-    "start:dev": "nodemon src/app.js" 
+    "start": "NODE_ENV=production node src/orders.js",
+    "start:main": "nodemon src/app.js" ,
+    "start:delivery": "nodemon src/delivery-sub.js",
+    "start:notification": "nodemon src/notification-sub.js"
   },
   "author": "Nkere-Awaji Inwan (enkay) <enkaypeter@gmail.com)",
   "license": "MIT",
