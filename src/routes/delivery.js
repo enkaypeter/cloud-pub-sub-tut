@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express();
-const baseController = require("../controllers/base-controller");
+const deliveryController = require("../controllers/delivery-controller");
 
 
-router.get("/delivery", baseController.deliveries);
+router.get("/delivery", deliveryController.deliveryHome);
+router.post("/delivery/pull", deliveryController.createDelivery);
 
 module.exports = router;

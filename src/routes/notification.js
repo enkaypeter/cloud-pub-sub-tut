@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express();
-const baseController = require("../controllers/base-controller");
+const notificationsController = require("../controllers/notification-controller");
 
 
-router.get("/notification", baseController.notifications);
+router.get("/notification", notificationsController.notificationsHome);
+router.post("/notification/pull", notificationsController.createNotification);
 
 module.exports = router;
