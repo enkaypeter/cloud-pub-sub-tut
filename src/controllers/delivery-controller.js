@@ -13,7 +13,7 @@ module.exports = {
         })
     },
 
-    createDelivery: (req, res) => {
+    pullDelivery: (req, res) => {
         try {
             listenForMessages(pubSubClient, subscriptionName, timeout);            
         } catch (error) {

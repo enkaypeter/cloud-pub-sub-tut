@@ -15,7 +15,7 @@ module.exports = {
         })
     },
 
-    createNotification: (req, res) => {
+    pullNotification: (req, res) => {
         try {
             listenForMessages(pubSubClient, subscriptionName, timeout);            
         } catch (error) {

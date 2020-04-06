@@ -4,6 +4,6 @@ const deliveryController = require("../controllers/delivery-controller");
 
 
 router.get("/delivery", deliveryController.deliveryHome);
-router.post("/delivery/pull", deliveryController.createDelivery);
+router.post("/delivery/pull", deliveryController.pullDelivery);
 
 module.exports = router;
