@@ -3,7 +3,7 @@ const router = express();
 const deliveryController = require("../controllers/delivery-controller");
 
 
-router.get("/delivery", deliveryController.deliveryHome);
-router.post("/delivery/pull", deliveryController.pullDelivery);
+router.get("/", deliveryController.deliveryHome);
+router.post("/pull", deliveryController.pullDelivery);
 
 module.exports = router;
