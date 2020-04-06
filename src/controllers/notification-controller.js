@@ -15,13 +15,13 @@ module.exports = {
         })
     },
 
-    createNotification: (req, res) => {
+    pullNotification: (req, res) => {
         try {
             listenForMessages(pubSubClient, subscriptionName, timeout);            
         } catch (error) {
             return res.status(500).json({
                 success: false,
-                message: "Couldn't recieve orders object :(",
+                message: "Couldn't receive orders object :(",
                 data: error
             })                        
         }
@@ -32,14 +32,14 @@ module.exports = {
             let messageResponse = await listenForPushMessages(req.body.message.data);
             return res.status(200).json({
                 success: true,
-                message: "Message recieved successfully",
+                message: "Message received successfully :)",
                 data: messageResponse
             })
     
         } catch (error) {
             return res.status(500).json({
                 success: false,
-                message: "Couldn't recieve orders object :(",
+                message: "Couldn't receive orders object :(",
                 data: error
             })                        
         }

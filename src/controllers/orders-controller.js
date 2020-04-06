@@ -20,7 +20,7 @@ module.exports = {
         let messageId = await publishMessage(pubSubClient, topicName, ordersObj);
         return res.status(200).json({
             success: true,
-            message: `Message ${messageId} published `
+            message: `Message ${messageId} published :)`
         })
     },
 
