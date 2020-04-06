@@ -14,7 +14,7 @@ NODE_ENV !== "production" ? app.use(morgan('dev')) : app.use(morgan('combined'))
 
 app.use(helmet());
 app.use(cors());
-app.use('/api', notificationsRoute);
+app.use('/api/notification', notificationsRoute);
 
 
 
