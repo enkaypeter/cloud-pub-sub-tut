@@ -3,7 +3,7 @@ const pubSubClient = new PubSub();
 const subscriptionName = "delivery_sub";
 const timeout = 60;
 const pubsubRepository = require("../repositories/pub-sub-repo");
-const { listenForMessages, listenForPushMessages } = pubsubRepository;
+const { listenForPullMessages, listenForPushMessages } = pubsubRepository;
 
 module.exports = {
     deliveryHome: (req, res) => {
@@ -15,7 +15,7 @@ module.exports = {
 
     pullDelivery: (req, res) => {
         try {
-            listenForMessages(pubSubClient, subscriptionName, timeout);            
+            listenForPullMessages(pubSubClient, subscriptionName, timeout);            
         } catch (error) {
             return res.status(500).json({
                 success: false,

@@ -7,7 +7,7 @@ module.exports = {
         return messageId;
     },
 
-    listenForMessages: (pubSubClient, subscriptionName,  timeout) => {
+    listenForPullMessages: (pubSubClient, subscriptionName,  timeout) => {
         const subscription = pubSubClient.subscription(subscriptionName);
 
         let messageCount = 0;
